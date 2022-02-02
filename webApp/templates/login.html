@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block title %}Onlyfox - Login{% endblock %}
+{% block content %}
+<form method="POST">
+    <br />
+        <!-- Username / Logo ***-->
+        <div align="middle">
+            <h3 style="color:black;text-shadow: 0px 0.7px 0px #000000"><font face="Times New Roman, Arial">Your Onlyfox Page </font></h3>
+            <!-- USER FRONT PAGE INPUT ****-->
+            <h6 style="color:black">by Dav Lefox</h6>
+            <br>
+            <br>
+            <!-- Background GIF *** -->
+            <style> body {background-image: url('https://www.icegif.com/wp-content/uploads/2021/10/icegif-898.gif');background-repeat: no-repeat;background-size:cover;}</style>
+        </div>
+
+
+            <h5 style="color:black;text-align:center;text-shadow: 0px 0.3px 0px #000000">
+            [ Anti-leak Feature ]<br>
+            [ SHA256 Encrypted ]<br>
+            [ Multi-Based Cloud Server ]<br>
+            [ 24/7 French & English Support ]<br><br>
+            </h5>
+
+
+        <div align="middle">
+                <!-- Email Textbox -->
+                <input type="email"  id="email" name="email" placeholder="Email address" style="width: 170px;text-align: center;"/>
+                <br />
+                <br />
+                <!-- Password Textbox -->
+                <input type="password"  id="password" name="password" placeholder="Password" style="width: 170px;text-align: center;"/>
+        </div>
+    <br />
+    <br />
+        <!-- Submit Button -->
+        <div align="middle">
+            <button style="width:170px" type="submit" class="btn btn-primary">Login</button>
+            <br />
+            <a href="/sign-up" style=";text-shadow: 0px 0.3px 0px #000000">Sign up here</a>
+            <br /><br />
+            <!-- Catchy Phrase *** -->
+            <h6><p style="color:white;text-shadow: 0px 2px 0px #000000">Come chat with me now </p></h6>
+        </div>
+    <br />
+    <br />
+
+</form>
+{% endblock %}

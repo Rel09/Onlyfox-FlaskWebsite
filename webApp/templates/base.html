@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Primary settings -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- CSS Bootstrap Import -->
+        <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous"/>
+        <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          crossorigin="anonymous"/>
+
+        <!-- Title Icon -->
+        <link rel = "icon" href ="https://i.imgur.com/TFJR0oV.png" type="image/x-icon">
+
+
+     <!-- Top Text -->
+    <title>{% block title %}Onlyfox{% endblock %}</title>
+
+    </head>
+    <!-- Page's Backgrounds **** -->
+    <body style="background-color:#000000;">
+
+        <div class="navbar-header">
+            <!-- Top Sticky Bar Color*** -->
+            <nav class="navbar sticky-top navbar-light" style="background-color: #ffffff;">
+                <!-- Top Sticky Bar [Logo] *** -->
+                <a class="navbar-brand mr-auto"><img src="https://i.imgur.com/sAZZfnc.png" width="200" height="70" alt=""></a>
+                <!-- Change Top Sticky Bar [Top Hyperlink]-->
+                <!-- If -->
+                {% if user.is_authenticated %}
+                    <a class="nav-link" id="home" href="/"><p style="color:black">Home</p></a>
+                    <a class="nav-link" id="logout" href="/logout"><p style="color:black">Logout</p></a>
+                <!-- else -->
+                {% else %}
+                    <a class="nav-link" id="home" href="/"><p style="color:black">Home</p></a>
+                <!-- End If  -->
+                {% endif %}
+
+            </nav>
+        </div>
+
+        <!-- Taking care of Flashing message -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            <!-- If we got a MESSAGES notice -->
+            {% if messages %}
+                <!-- Loop Category & Message in [messageS] -->
+                {% for category, message in messages %}
+                    <!-- If the message type is error -->
+                    {% if category == 'error' %}
+                        <div class="alert alert-danger alter-dismissable fade show">
+                            <!-- Display the message stored in [messageS] used by the function -->
+                            {{ message }}
+                            <!-- Button Close to dismiss the Alert -->
+                            <button type="button" class="close" data-dismiss="alert">
+                                <!--The aria-hidden state indicates whether the element is exposed to an accessibility API-->
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <!-- If the message type isnt error -->
+                    {% else %}
+                        <div class="alert alert-success alter-dismissable fade show">
+                            <!-- Display the message stored in [messageS] used by the function -->
+                            {{ message }}
+                            <!-- Button Close to dismiss the Alert -->
+                            <button type="button" class="close" data-dismiss="alert">
+                                <!--The aria-hidden state indicates whether the element is exposed to an accessibility API-->
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <!-- Ending Loop's -->
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Container for our Python code -->
+        <div class="container">
+            {%block content%}
+            {% endblock %}
+        </div>
+
+        <!-- CSS Bootstrap -->
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"
+        ></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"
+        ></script>
+
+        <!-- Javascript code to refresh the page if a Note is deleted -->
+        <script
+        type="text/javascript"
+        src="{{ url_for('static', filename='index.js') }}"
+        ></script>
+
+    </body>
+</html>

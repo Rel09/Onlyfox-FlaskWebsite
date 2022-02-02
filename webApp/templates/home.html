@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}Onlyfox - Home{% endblock %} {% block content %}
+<br />
+<!-- Opening List & Displaying Note + button_class(deleteNote) -->
+<ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+        <li class="list-group-item">{{ note.data }}
+            <!-- Bouton Delete Note -->
+            <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+                <span aria-hidden="true">&times</span>
+            </button>
+        </li>
+    {% endfor %}
+</ul>
+
+<!-- Sending ( POST ) the Note from textarea(note) -->
+<br />
+<form method="POST">
+    <textarea name="note" id="note" class="form-control"></textarea>
+    <div align="center">
+        <br />
+        <!-- Button Add Note -->
+        <button type="submit" class="btn btn-primary">Add Note</button>
+    </div>
+</form>
+{% endblock %}

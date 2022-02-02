@@ -1,0 +1,73 @@
+{% extends "base.html" %} {% block title %}Onlyfox - New account{% endblock %}
+{% block content %}
+<form method="POST">
+    <!-- Top Message -->
+    <h4 align="center">
+            <style> body {background-image: url('https://www.icegif.com/wp-content/uploads/2021/10/icegif-898.gif');
+            background-repeat: no-repeat;
+            background-size: cover;}
+            </style>
+        <br />
+        <h3 style="color:black" align="middle">Sign up</h3>
+    </h4>
+    <!-- Over picture text -->
+    <br />
+
+    <h5 align="center" style="color:red">
+
+    <p style="text-shadow: 0px 0.3px 0px #000000">You MUST be 18+ years old <br>to ENTER this website</p>
+    </h5>
+    <br />
+    <!-- Email -->
+    <h5 align="center">
+
+        <div class="form-group">
+           <p style="color:white;text-shadow: 0px 1px 0px #000000">Email Address</p>
+           <input type="email"
+                   class="form-control"
+                   id="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   style="width: 250px;text-align: center;"/>
+        </div>
+        <!-- Username -->
+        <div class="form-group">
+            <p style="color:white;text-shadow: 0px 1px 0px #000000">Username</p>
+            <input type="text"
+                   class="form-control"
+                   id="firstName"
+                   name="firstName"
+                   placeholder="Enter your username"
+                   style="width: 250px;text-align: center;"/>
+        </div>
+        <!-- Password -->
+        <div class="form-group">
+            <p style="color:white;text-shadow: 0px 1px 0px #000000">Password</p>
+            <input type="password"
+                   class="form-control"
+                   id="password1"
+                   name="password1"
+                   placeholder="Enter your password"
+                   style="width: 250px;text-align: center;"/>
+
+        </div>
+        <!-- Pass confirm -->
+        <div class="form-group">
+            <p style="color:white;text-shadow: 0px 1px 0px #000000">Confirm Password</p>
+            <input type="password"
+                   class="form-control"
+                   id="password2"
+                   name="password2"
+                   placeholder="Confirm your password"
+                   style="width: 250px;text-align: center;"/>
+        </div>
+    </h5>
+
+    <br />
+    <!-- Login button -->
+    <p align="center">
+        <button type="submit" style="width:170px" class="btn btn-primary">Submit</button>
+    </p>
+
+</form>
+{% endblock %}
